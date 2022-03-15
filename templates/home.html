@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+{% load static %}
+{% block content%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1> tourist </h1>
+<div class="dropdown-menu">
+
+    <a class="dropdown-item">All states</a>
+
+    <!--<a class="dropdown-item" href="#">xyzz</a>
+     <a class="dropdown-item" href="#">xyzz</a>
+     <a class="dropdown-item" href="#">xyzz</a>
+     <a class="dropdown-item" href="#">xyzz</a>-->
+    {% for category in links %}
+    <a class="dropdown-item" href="{{ category.get_url }}">{{ category.state}}</a>
+    {% endfor %}
+
+</div>
+
+<div class="row">
+
+    {% for state in states %}
+        <div>
+               <div> <h4>{{state.location_name}}</h4></div>
+                <div><img src="{{ state.images.url }}" alt="Name"></div> <br>
+
+        </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>
+{% endblock %}
